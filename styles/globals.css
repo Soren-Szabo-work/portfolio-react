@@ -2721,11 +2721,14 @@ table.alt tfoot {
   clip-path: inset(10px calc(100% - 30px) 10px 10px round 9999px);
 }
 
+svg {
+  fill: var(--color-text);
+  transition: all 0.3s ease;
+}
+
 .button svg {
   margin: 0.15em 0 0 0.2em;
   position: relative;
-  fill: var(--color-text);
-  transition: all 0.3s ease;
 }
 
 /* input[type="submit"],
