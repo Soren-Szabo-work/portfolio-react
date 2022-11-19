@@ -1,9 +1,11 @@
 // import '../styles/globals.css'
 import { ThemeProvider } from "next-themes";
-import Cursor from "../components/Cursor";
 import CursorContextProvider from "../components/CursorContextProvider";
-import "../styles/globals.css";
+import Cursor from "../components/Cursor";
+
+// Fonts
 import "@fontsource/sarina";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (

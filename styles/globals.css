@@ -2721,11 +2721,14 @@ table.alt tfoot {
   clip-path: inset(10px calc(100% - 30px) 10px 10px round 9999px);
 }
 
+svg {
+  fill: var(--color-text);
+  transition: all 0.3s ease;
+}
+
 .button svg {
   margin: 0.15em 0 0 0.2em;
   position: relative;
-  fill: var(--color-text);
-  transition: all 0.3s ease;
 }
 
 /* input[type="submit"],
@@ -3321,22 +3324,6 @@ body.is-touch .tiles article .content {
 #header nav ul li a[href="#menu"]:hover:after {
 	opacity: 0;
 } */
-
-@media screen and (max-width: 736px) {
-  #header {
-    padding: 4em 0 0.1em 0;
-  }
-
-  #header nav {
-    right: 0.5em;
-    top: 0.5em;
-  }
-
-  #header nav ul li a[href="#menu"]:before,
-  #header nav ul li a[href="#menu"]:after {
-    background-size: 1.5em 1.5em;
-  }
-}
 
 /* Menu */
 
