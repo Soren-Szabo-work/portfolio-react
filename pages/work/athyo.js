@@ -22,10 +22,34 @@ export default function Athyo() {
             sizes to fit through tighter spaces or deal more damage thanks to
             their different abilities and upgrade trees.
           </p>
+          <span class="image main">
+            <Image
+              src="/images/athyo/ingame_2.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+          </span>
           <p>
             This game was built in ActionScript 3 for Windows during my first
             year at ISART Digital. The assets were made by Game Artist students.
           </p>
+          <span class="image main">
+            <Image
+              src="/images/athyo/ingame_1.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+          </span>
+          <span class="image main">
+            <Image
+              src="/images/athyo/credits.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+          </span>
         </div>
       </div>
       <Footer></Footer>

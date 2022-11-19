@@ -7,7 +7,7 @@ const useMousePosition = () => {
   });
 
   const updatePosition = (event) => {
-    const { pageX, pageY, clientX, clientY } = event;
+    const { clientX, clientY } = event;
 
     setPosition({
       clientX,
@@ -16,12 +16,12 @@ const useMousePosition = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("mousemove", updatePosition, false);
-    document.addEventListener("mouseenter", updatePosition, false);
+    document.addEventListener("pointermove", updatePosition, false);
+    document.addEventListener("pointerenter", updatePosition, false);
 
     return () => {
-      document.removeEventListener("mousemove", updatePosition);
-      document.removeEventListener("mouseenter", updatePosition);
+      document.removeEventListener("pointermove", updatePosition);
+      document.removeEventListener("pointerenter", updatePosition);
     };
   }, []);
 

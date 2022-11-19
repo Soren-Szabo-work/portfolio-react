@@ -2,7 +2,7 @@
 import { ThemeProvider } from "next-themes";
 import Cursor from "../components/Cursor";
 import CursorContextProvider from "../components/CursorContextProvider";
-import "../styles/main.css";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
