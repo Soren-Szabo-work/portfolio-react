@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import Cursor from "../components/Cursor";
 import CursorContextProvider from "../components/CursorContextProvider";
 import "../styles/globals.css";
+import "@fontsource/sarina";
 
 function MyApp({ Component, pageProps }) {
   return (

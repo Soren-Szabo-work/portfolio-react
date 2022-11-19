@@ -8,15 +8,6 @@
   src: url("../webfonts/Garde.woff") format("woff");
 }
 
-@font-face {
-  font-family: "Sarina";
-  src: url("../webfonts/Sarina-Regular.woff2") format("woff2"),
-    url("../webfonts/Sarina-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /*
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
