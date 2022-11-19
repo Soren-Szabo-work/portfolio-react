@@ -11,23 +11,20 @@ function Header() {
 
   return (
     // {/* <!-- Header --> */}
-    <header id="header">
+    <header id="header" className="sticky">
       <div className="inner">
-        <div className="header--container">
+        <nav className="navbar">
           <div className="left-side">
             {/* <!-- Logo --> */}
-            <div className="logo magnet" {...cursorHandlers}>
-              <Link className="a" href="/">
-                <span className="symbol">
-                  <Image
-                    src="/images/ICON_SOREN.png"
-                    alt=""
-                    width={50}
-                    height={50}
-                  />
-                </span>
-              </Link>
-            </div>
+            <Link className="a logo" href="/" {...cursorHandlers}>
+              <Image
+                src="/images/ICON_SOREN.png"
+                alt=""
+                width={50}
+                height={50}
+              />
+            </Link>
+            <span id="logoname">Soren</span>
           </div>
           <div className="right-side">
             <ClientOnly>
@@ -67,7 +64,7 @@ function Header() {
               </ul>
             </ClientOnly>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

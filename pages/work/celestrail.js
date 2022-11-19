@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "../../components/Button";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Slideshow from "../../components/Slideshow";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 
 export default function Celestrail() {
@@ -31,10 +32,6 @@ export default function Celestrail() {
             solving the puzzles that surround you. Good luck!
           </p>
           <YoutubeEmbed videoId={"Pzccyw9-FQM"}></YoutubeEmbed>
-          {/* <Youtube className="video-container" videoId="Pzccyw9-FQM"></Youtube> */}
-          {/* <div class="video-container cursor-hover-item" tabindex="0">
-            <div id="Pzccyw9-FQM" frameborder="0"></div>
-          </div> */}
           <p />
           <p>
             One of the main challenges of this project was to make sure the
@@ -46,11 +43,31 @@ export default function Celestrail() {
           </p>
           <Button
             data={{
-              title: "Website",
-              description: "View on Sidequest",
+              title: "More info and download",
+              description: "View Celestrail on Sidequest",
               href: "https://sidequestvr.com/app/8315/celestrail",
             }}
           ></Button>
+          <p />
+          <h2>Gallery</h2>
+
+          <Slideshow
+            images={[
+              "/images/celestrail/01.png",
+              "/images/celestrail/02.png",
+              "/images/celestrail/03.png",
+              "/images/celestrail/04.png",
+              "/images/celestrail/05.png",
+              "/images/celestrail/06.png",
+              "/images/celestrail/07.png",
+              "/images/celestrail/08.png",
+              "/images/celestrail/09.png",
+              "/images/celestrail/10.png",
+              "/images/celestrail/11.png",
+              "/images/celestrail/12.png",
+              "/images/celestrail/13.png",
+            ]}
+          ></Slideshow>
         </div>
       </div>
       <Footer></Footer>
