@@ -1,6 +1,7 @@
 import React from "react";
 import useCursorHandlers from "../utils/useCursorHandlers";
 import Socials from "./Socials";
+import Image from "next/image";
 
 function Footer() {
   const cursorHandlers = useCursorHandlers();
@@ -52,7 +53,7 @@ function Footer() {
           ></Socials>
         </ul>
         <ul className="copyright">
-          <li>&copy; Soren Szabo. All rights reserved</li>
+          <li>Copyright &copy; Soren Szabo. All rights reserved.</li>
           <li>
             Template from:{" "}
             <a
@@ -64,6 +65,17 @@ function Footer() {
             >
               HTML5 UP
             </a>
+          </li>
+          <li>
+            Powered by{" "}
+            <span className="logo">
+              <Image
+                src="/vercel.svg"
+                alt="Vercel Logo"
+                width={72}
+                height={16}
+              />
+            </span>
           </li>
         </ul>
       </div>
