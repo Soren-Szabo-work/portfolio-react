@@ -1,13 +1,10 @@
 import Image from "next/image";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 
 export default function Rushed() {
   return (
     <div id="wrapper">
-      <Header></Header>
       <div id="main">
-        <div class="inner">
+        <div class="inner work-container">
           <h1>Rushed</h1>
           <span class="image main">
             <Image
@@ -22,6 +19,20 @@ export default function Rushed() {
             designer. From game assets to programming, I built the game from
             scratch, trying my best to replicate the game made by TwoTribes.
           </p>
+          <span class="image flex">
+            <Image
+              src="/images/rushed/GP1.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+            <Image
+              src="/images/rushed/GP3.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+          </span>
           <p>
             In this puzzle game, you&#39;re going to work on your visualization
             skills. Build the path to guide every cube to its destination, but
@@ -31,6 +42,20 @@ export default function Rushed() {
             you&#39;re done, you can press play and check if your solution is
             correct or not, and retry if you need to.
           </p>
+          <span class="image flex">
+            <Image
+              src="/images/rushed/GP4.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+            <Image
+              src="/images/rushed/WS.png"
+              alt=""
+              width={1920}
+              height={1080}
+            />
+          </span>
           <p>
             The most important part of this project was making sure everything
             worked as intended. The game has many ways to interact with the
@@ -39,7 +64,6 @@ export default function Rushed() {
           </p>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 }

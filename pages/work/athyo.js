@@ -1,13 +1,10 @@
 import Image from "next/image";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 
 export default function Athyo() {
   return (
     <div id="wrapper">
-      <Header></Header>
       <div id="main">
-        <div class="inner">
+        <div class="inner work-container">
           <h1>Athyo</h1>
           <span class="image main">
             <Image
@@ -52,7 +49,6 @@ export default function Athyo() {
           </span>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 }
