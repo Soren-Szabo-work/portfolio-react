@@ -13,7 +13,7 @@ const Cursor = () => {
   const { x: largeX, y: largeY } = useFollowPointer(largeCursor);
 
   const { isMobile } = useDeviceDetext();
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [isIdle, setIsIdle] = useState(false);
 
   const lastMove = useRef(null);
@@ -32,18 +32,14 @@ const Cursor = () => {
     document.body.addEventListener("pointerleave", handlePointerLeave);
     document.body.addEventListener("pointermove", handlePointerMove);
 
-    // requestRef.current = requestAnimationFrame(animate);
-
     return () => {
       document.body.removeEventListener("pointerenter", handlePointerEnter);
       document.body.removeEventListener("pointerleave", handlePointerLeave);
       document.body.removeEventListener("pointermove", handlePointerMove);
-      // cancelAnimationFrame(requestRef.current);
     };
   }, [cursor]);
 
   if (isMobile) return null;
-  if (!isVisible) return <div className="cursor" />;
   return (
     <div className="cursor">
       <motion.div
@@ -51,7 +47,11 @@ const Cursor = () => {
         className="cursor--large"
         ref={largeCursor}
         initial={{ x: largeX, y: largeY }}
-        animate={{ x: largeX, y: largeY, scale: cursor.hover ? 1.5 : 1 }}
+        animate={{
+          x: largeX,
+          y: largeY,
+          scale: !isVisible ? 0 : cursor.hover ? 1.5 : 1,
+        }}
         transition={{
           type: "spring",
           damping: 40,
@@ -61,20 +61,20 @@ const Cursor = () => {
           scale: {
             duration: 0.3,
             type: "tween",
-            ease: "backOut",
+            ease: isVisible ? "backOut" : "linear",
           },
         }}
         style={{
-          // transform: `translate(-50%, -50%) translate3d(${trailX}px, ${trailY}px, 0)`,
           opacity: `${isIdle && !cursor.hover ? 0 : 1}`,
         }}
       />
       <div
         className={`cursor--small ${cursor.hover ? "hover" : ""}`}
         style={{
+          scale: `${isVisible ? 1 : 0}`,
           transform: `translate(-50%, -50%) translate3d(${clientX}px, ${clientY}px, 0px)`,
         }}
-      ></div>
+      />
     </div>
   );
 };

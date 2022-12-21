@@ -1,22 +1,45 @@
 import Link from "next/link";
 import useCursorHandlers from "../utils/useCursorHandlers";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const framerTile = {
+  initial: {
+    opacity: 0,
+    y: 75,
+    // scale: 0.8,
+    rotateX: "-40deg",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    // scale: 1,
+    rotateX: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 function WorkTile({ data }) {
   const cursorHandlers = useCursorHandlers();
 
   return (
-    <article
+    <motion.article
       className={data.classStyle ? data.classStyle : ""}
-      data-cursor-text="LEARN MORE!"
-      data-cursor-text-repeat="3"
+      variants={framerTile}
       {...cursorHandlers}
+      style={{ originY: 0 }}
     >
       <span className="image">
-        <img
+        <Image
           src={`/images/${
             data.backgroundImage ? data.backgroundImage : "pic01.jpg"
           }`}
           alt=""
+          width={500}
+          height={500}
         />
       </span>
       <Link href={data.href ? data.href : "/"}>
@@ -25,7 +48,7 @@ function WorkTile({ data }) {
           <p>{data.heading}</p>
         </div>
       </Link>
-    </article>
+    </motion.article>
   );
 }
 

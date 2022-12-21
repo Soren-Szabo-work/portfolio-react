@@ -79,9 +79,11 @@ const Slideshow = ({ images }) => {
           }}
         >
           <Image
-            width={1920}
-            height={1080}
-            src={images[imageIndex]}
+            width={images[imageIndex].width}
+            height={images[imageIndex].height}
+            src={images[imageIndex].src}
+            placeholder="blur"
+            blurDataURL={images[imageIndex].blurDataURL}
             alt=""
           ></Image>
         </motion.div>
