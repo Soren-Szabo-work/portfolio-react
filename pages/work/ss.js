@@ -1,16 +1,32 @@
 import Image from "next/image";
+import { useState } from "react";
+import LightboxNJS from "../../components/LightboxNJS";
+
+// image imports
+import banner from "../../public/images/ss/BANNER_SS.jpg";
+import image01 from "../../public/images/ss/2.png";
+import image02 from "../../public/images/ss/4.png";
+import image03 from "../../public/images/ss/5.png";
+import image04 from "../../public/images/ss/3.png";
 
 export default function Ss() {
+  
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   return (
     <div id="wrapper">
       <div id="main">
         <div class="inner work-container">
           <h1>Shogun Showdown</h1>
 
+          <LightboxNJS open={lightboxOpen} setOpen={setLightboxOpen} index={lightboxIndex} slides={[image01, image02, image03, image04]}/>
+
           <span class="image main">
             <Image
-              src="/images/BANNER_SS.jpg"
+              src={banner}
               alt=""
+              placeholder="blur"
               width={1024}
               height={256}
             />
@@ -23,8 +39,22 @@ export default function Ss() {
           </p>
 
           <span class="image flex">
-            <Image src="/images/ss/2.png" alt="" width={1920} height={1080} />
-            <Image src="/images/ss/4.png" alt="" width={1920} height={1080} />
+            <Image 
+              src={image01} 
+              alt=""
+              placeholder="blur" 
+              width={1920} 
+              height={1080} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(0); }}
+            />
+            <Image 
+              src={image02} 
+              alt=""
+              placeholder="blur" 
+              width={1920} 
+              height={1080} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(1); }}
+            />
           </span>
 
           <p>
@@ -35,8 +65,22 @@ export default function Ss() {
           </p>
 
           <span class="image flex">
-            <Image src="/images/ss/5.png" alt="" width={1920} height={1080} />
-            <Image src="/images/ss/3.png" alt="" width={1920} height={1080} />
+            <Image 
+              src={image03} 
+              alt=""
+              placeholder="blur" 
+              width={1920} 
+              height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(3); }}  
+            />
+            <Image 
+              src={image04} 
+              alt=""
+              placeholder="blur" 
+              width={1920} 
+              height={1080} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(4); }}  
+            />
           </span>
 
           <p>

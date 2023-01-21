@@ -1,15 +1,33 @@
 import Image from "next/image";
+import { useState } from "react";
+import LightboxNJS from "../../components/LightboxNJS";
+
+// image imports
+import banner from "../../public/images/rushed/BANNER_RUSHED.jpg";
+import image01 from "../../public/images/rushed/GP1.png";
+import image02 from "../../public/images/rushed/GP3.png";
+import image03 from "../../public/images/rushed/GP4.png";
+import image04 from "../../public/images/rushed/WS.png";
+
 
 export default function Rushed() {
+  
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   return (
     <div id="wrapper">
       <div id="main">
         <div class="inner work-container">
           <h1>Rushed</h1>
+
+          <LightboxNJS open={lightboxOpen} setOpen={setLightboxOpen} index={lightboxIndex} slides={[image01, image02, image03, image04]}/>
+          
           <span class="image main">
             <Image
-              src="/images/BANNER_RUSHED.jpg"
+              src={banner}
               alt=""
+              placeholder="blur"
               width={1024}
               height={256}
             />
@@ -21,16 +39,20 @@ export default function Rushed() {
           </p>
           <span class="image flex">
             <Image
-              src="/images/rushed/GP1.png"
+              src={image01}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(0); }}
             />
             <Image
-              src="/images/rushed/GP3.png"
+              src={image02}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(1); }}
             />
           </span>
           <p>
@@ -44,16 +66,20 @@ export default function Rushed() {
           </p>
           <span class="image flex">
             <Image
-              src="/images/rushed/GP4.png"
+              src={image03}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(2); }}
             />
             <Image
-              src="/images/rushed/WS.png"
+              src={image04}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(3); }}
             />
           </span>
           <p>
