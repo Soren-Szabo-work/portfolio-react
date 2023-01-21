@@ -3137,6 +3137,6 @@ main {
 }
 
 /* LightBox */ 
-.yarl__portal_open, .yarl__slide, .yarl__slide * {
+.yarl__portal_open, .yarl__toolbar, .yarl__slide, .yarl__slide * {
   cursor: default;
 }
