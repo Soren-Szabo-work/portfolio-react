@@ -1,15 +1,37 @@
+import { useState } from "react";
+
 import Image from "next/image";
 
+// local images imports
+import banner from "../../public/images/the-workplace/BANNER_THEWORKPLACE.jpg"
+import roomA1 from "../../public/images/the-workplace/ROOM_A_1.png";
+// import roomB1 from "../../public/images/the-workplace/ROOM_B_1.png";
+import roomC1 from "../../public/images/the-workplace/ROOM_C_1.png";
+import roomD1 from "../../public/images/the-workplace/ROOM_D_1.png";
+// import roomE1 from "../../public/images/the-workplace/ROOM_E_1.png";
+import roomE21 from "../../public/images/the-workplace/ROOM_E2_1.png";
+// import roomE22 from "../../public/images/the-workplace/ROOM_E2_2.png";
+import roomF1 from "../../public/images/the-workplace/ROOM_F_1.png";
+import roomG1 from "../../public/images/the-workplace/ROOM_G_1.png";
+import LightboxNJS from "../../components/LightboxNJS";
+
 export default function TheWorkplace() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   return (
     <div id="wrapper">
       <div id="main">
-        <div class="inner work-container">
+        <div className="inner work-container">
+
+          <LightboxNJS open={lightboxOpen} setOpen={setLightboxOpen} index={lightboxIndex} slides={[roomA1, roomC1, roomD1, roomE21, roomF1, roomG1]}/>
+
           <h1>The Workplace</h1>
-          <span class="image main">
+          <span className="image main">
             <Image
-              src="/images/BANNER_THEWORKPLACE.jpg"
+              src={banner}
               alt=""
+              placeholder="blur"
               width={1024}
               height={256}
             />
@@ -19,18 +41,22 @@ export default function TheWorkplace() {
             game feel.
           </p>
 
-          <span class="image flex">
+          <span className="image flex">
             <Image
-              src="/images/the-workplace/ROOM_A_1.png"
+              src={roomA1}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(0); }}
             />
             <Image
-              src="/images/the-workplace/ROOM_C_1.png"
+              src={roomC1}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(1); }}
             />
           </span>
 
@@ -40,18 +66,22 @@ export default function TheWorkplace() {
             or will you blaze your own trail and see what happens? <br />
             The choice is yours!
           </p>
-          <span class="image flex">
+          <span className="image flex">
             <Image
-              src="/images/the-workplace/ROOM_D_1.png"
+              src={roomD1}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(2); }}
             />
             <Image
-              src="/images/the-workplace/ROOM_E2_1.png"
+              src={roomE21}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(3); }}
             />
           </span>
           <p>
@@ -64,18 +94,22 @@ export default function TheWorkplace() {
             an incentive to interact with the game to see what could have been
             if you made a different choice.
           </p>
-          <span class="image flex">
+          <span className="image flex">
             <Image
-              src="/images/the-workplace/ROOM_F_1.png"
+              src={roomF1}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(4); }}
             />
             <Image
-              src="/images/the-workplace/ROOM_G_1.png"
+              src={roomG1}
               alt=""
+              placeholder="blur"
               width={1920}
               height={1080}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(5); }}
             />
           </span>
         </div>

@@ -6,7 +6,7 @@ import SiteIntroduction from "../components/SiteIntroduction";
 
 export default function Home({ isFirstUse }) {
   const welcomeText = [
-    { type: "heading1", text: "Welcome." },
+    { type: "heading1", text: "Welcome" },
     {
       type: "paragraph",
       text: "I'm a gameplay programmer based in Paris, France. Using my experience to build exciting new ways to game on every platform. Here is some of my work",

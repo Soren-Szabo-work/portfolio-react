@@ -1,15 +1,32 @@
 import Image from "next/image";
+import LightboxNJS from "../../components/LightboxNJS";
+
+// images
+import banner from "../../public/images/ddd/BANNER_DDD.jpg";
+import image01 from "../../public/images/ddd/6.png";
+import image02 from "../../public/images/ddd/5.png";
+import image03 from "../../public/images/ddd/1.png";
+import image04 from "../../public/images/ddd/4.png";
+import { useState } from "react";
 
 export default function Ddd() {
+  
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   return (
     <div id="wrapper">
       <div id="main">
         <div class="inner work-container">
+
+          <LightboxNJS open={lightboxOpen} setOpen={setLightboxOpen} index={lightboxIndex} slides={[image01,image02,image03,image04]}/>
+
           <h1>DashDashDASH!</h1>
           <span class="image main">
             <Image
-              src="/images/BANNER_DDD.jpg"
+              src={banner}
               alt=""
+              placeholder="blur"
               width={1024}
               height={256}
             />
@@ -19,8 +36,22 @@ export default function Ddd() {
             2019.
           </p>
           <span class="image flex">
-            <Image src="/images/ddd/6.png" alt="" width={810} height={1440} />
-            <Image src="/images/ddd/5.png" alt="" width={810} height={1440} />
+            <Image 
+              src={image01} 
+              alt=""
+              placeholder="blur" 
+              width={810} 
+              height={1440}
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(0); }}   
+            />
+            <Image 
+              src={image02} 
+              alt=""
+              placeholder="blur" 
+              width={810} 
+              height={1440} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(1); }}
+            />
           </span>
           <p>
             Slash your preys! Death is on paid leave this week, you, the intern,
@@ -30,8 +61,22 @@ export default function Ddd() {
             best way to collect them all
           </p>
           <span class="image flex">
-            <Image src="/images/ddd/1.png" alt="" width={810} height={1440} />
-            <Image src="/images/ddd/4.png" alt="" width={810} height={1440} />
+            <Image 
+              src={image03} 
+              alt=""
+              placeholder="blur" 
+              width={810} 
+              height={1440} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(2); }}  
+            />
+            <Image 
+              src={image04} 
+              alt=""
+              placeholder="blur" 
+              width={810} 
+              height={1440} 
+              onClick={() => {setLightboxOpen(true); setLightboxIndex(4); }}
+            />
           </span>
           <p>
             During this project I was tasked to work on physics and juiciness.

@@ -1,18 +1,54 @@
 import Image from "next/image";
-import Button from "../../components/Button";
-import Slideshow from "../../components/Slideshow";
+import { useState } from "react";
+import { ButtonLink, Button } from "../../components/Button";
+import LightboxNJS from "../../components/LightboxNJS";
+// import Slideshow from "../../components/Slideshow";
 import YoutubeEmbed from "../../components/YoutubeEmbed";
 
+// image imports 
+import banner from "../../public/images/celestrail/BANNER_CELESTRAIL.jpg";
+import image01 from "../../public/images/celestrail/01.webp";
+import image02 from "../../public/images/celestrail/02.webp";
+import image03 from "../../public/images/celestrail/03.webp";
+import image04 from "../../public/images/celestrail/04.webp";
+import image05 from "../../public/images/celestrail/05.webp";
+import image06 from "../../public/images/celestrail/06.webp";
+import image07 from "../../public/images/celestrail/07.webp";
+import image08 from "../../public/images/celestrail/08.webp";
+import image09 from "../../public/images/celestrail/09.webp";
+import image10 from "../../public/images/celestrail/10.webp";
+import image11 from "../../public/images/celestrail/11.webp";
+import image12 from "../../public/images/celestrail/12.webp";
+import image13 from "../../public/images/celestrail/13.webp";
+import image14 from "../../public/images/celestrail/14.webp";
+import image15 from "../../public/images/celestrail/15.webp";
+import image16 from "../../public/images/celestrail/16.webp";
+import image17 from "../../public/images/celestrail/17.webp";
+import image18 from "../../public/images/celestrail/18.webp";
+
 export default function Celestrail() {
+  
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   return (
     <div id="wrapper">
       <div id="main">
         <div class="inner work-container">
           <h1>Celestrail</h1>
+
+          <LightboxNJS 
+            open={lightboxOpen} 
+            setOpen={setLightboxOpen} 
+            index={lightboxIndex} 
+            slides={[image01, image02, image03, image04, image05, image06, image07, image08, image09, image10, image11, image12, image13, image14, image15, image16, image17, image18]}
+          />
+
           <span class="image main">
             <Image
-              src="/images/BANNER_CELESTRAIL.jpg"
+              src={banner}
               alt=""
+              placeholder="blur"
               width={1024}
               height={256}
             />
@@ -37,14 +73,19 @@ export default function Celestrail() {
             with the bow, I also worked on various gameplay elements and
             animated tutorial elements.
           </p>
-          <Button
+          <ButtonLink
             data={{
               title: "More info and download",
               description: "View Celestrail on Sidequest",
               href: "https://sidequestvr.com/app/8315/celestrail",
             }}
-          ></Button>
-          <h2>Gallery</h2>
+          ></ButtonLink>
+          <Button 
+            title="GALLERY" 
+            description="Open Image Slideshow" 
+            onClick={() => {setLightboxOpen(true); setLightboxIndex(0); }}
+          />
+          {/* <h2>Gallery</h2>
           <Slideshow
             images={[
               {
@@ -174,7 +215,7 @@ export default function Celestrail() {
                   "data:image/webp;base64,UklGRggNAABXRUJQVlA4IPwMAAAQ/QCdASriBL8CPxGIu1osKKWkIAg5gCIJaW7hZ3DDpM3KUU//i0B+yalAv/+968Gl50+wBRG/b4wNRVfL3Gn5iD3k/06dOnTp87OAe9MDA1FYeYiPnMveyPL3KC1LU1w8S0eQQxnTsHgjkpGNTMHrW5VlPU0RTKr5e73Sg9VJ1FW84LgQK3ZIHjkfu9XnM3Ev+NqNU8hQVwVwbf2ahdJzajrZZRN65kH8LKeCXLst0pAWjp1Mc3TsILB28wQqmim8qDXiqDygjTC7mHGwv5sVhOqr3Vqt24FkJc9N0YbEg96nyu3dov0lEOo0EEv/jY2RjTye57C6IlocxRtm1nAXUq0nOuTVCVEdLYwaM9jlLEDSyUkjDklatiPoz6FnU/rZgfplH8uqLvAjcOm8XmGv/fgQXILqhD5R5chKyMvF0HOL1dgd/L4KVTkdhUBeCs3oZm20nt8Icd2TYE6kOY9dKOESv9513bIDFxo5K7VEo5ii58WkF0JzIoltD064wKlaMtdCRcaOUTrH1xULxrPKmhQTpNlqkpwmGKocg8rJj5lmb1xSQQQwtMXKD4EHBKL/3PScaFEEJheNaPpqohkONekZHGSlMZPZniOPxYSYPzpNM+KJhpGcE54rT110T8W6XHrf5/hO7LZg5PICQ7qHHa4y0bWCsmYXKqFyLWPSW/xwEDsq4XVaIk2iX66YXjwQd3LO+lWgz4SyOId3OVE9EtLd/xsHJzpz8RxQbFN2n8QTTQX9tjBN8lo9/4fVYB1UfvSqKm5V4LW3d8UDhKfi8no8iY76qagsFTYaAFT67O42NHeaYH82Y6EhW+i55FLwhTsqDnYTXnyGG9zQjawB6NM+JaqdXOW4nPAvuL1oqcQENxoJA5wvU0CNR8XHvncdHjrQbL0O7NOgEhEMXGjmMrk0NAM6JPG2a60I533Sn4A5AzmBO3Km/dZ0AvenhU76vcW+qoCHvId3F7I427tUT3CrC9ve2JtrX1/RnE4ecQKdBdzGAcdPQOZz5IGvoKFGtFiElWiIjwnhqbCETNqAu1FGhWo9SZDHWbGJNoKunN6HXHAy+kMM7hXWJGEZO1a/vaqDUHdsDpMBcEKsEYPpd3RZZaXtYF1kqgNDIuVgCVX/C8oB9QWDZSjICxXvno3/dmQwoqHfG+R3sTNVBWQ72VlKw3itu5B6K4a42N30bCSVY9l9wgNmcve1T6vb3+8O4vWyUVwRlKrELSgF3tVoPxoV02lZH2oqvl8emSb0id74Ljvap+UFfvaEY/hzMCJlXxPRqnhAIpmIe9qmdHKAkCisgoCQViKafZDxC1Be9iXMhiaFBkYd2vP5SCi7vZTBhwLOHxtVBWQ8vEh06kkfdb2bKnX8l6+V/tibURwsm+QxWFQ7KCkielkab6vp4VVRwW9OS/llDFOruLeazp07oifvap4AVVxMJb0BrJxvpmj6hN2h97Y9pNm17agd9HlB/rO02WufiuIwjJ94S1CxZGs7XxFqcXvbH44FHf2LoExYlteSc+7OpUbpJomr+Vx3YP7Y2Dw7T/mLBty8DNgde1PavnGfnYLUczX8Y/eEolV2pVMPaJzucYP8NJ3NxWROWXWN2cCF6e4iZPpUNeN1qc7GJOS5+9sTahaxAdMYWRvMUBAMJvxLfiWpDqNkH+KJozbJ9WqcatyhhGnjc41yEY5tlpqgjXF1Wqvk4WoM1RWv48B1yUIxjplWrk52ufBs6bn4PVLwZeglDnf9EE0i++tEOnqOxUxdnwA1oTGuP/103Gn2uxiwe8+akPL3zswTVpwr6/l1WSWvCr74e+IWh7gowYDMpPKEbB7Repdpdpt7J2K4lMIrwHoZ2fXyWklMS3mX5MIYD6GKlv/bk/IXVUQPe+GsjZ7eUsW4BJp4T/MredZA0tvxd26KrwGvor01nA2hpu5+z2LNkHnrAEJkzBI3oMD82iUhDsxo3Iyy7H2wZ79yAtn5FB3h4HWDGZ7vaizBcE3NhKEmQlCi3McG/nwHd6g2Yi8Z7XLUpRvS1aNx86uisPufCSdZ6yHl75s1W9mnvPcihclUm+nDu3FkeI3hZ5wsOpQW8iFNWsH+98RwDX4PNpZyhHvnJ0nvHihmbfo73nYM6KzAAO7MEOHidh1AiU6c26QgJAq2hqBslkSCX8iFlHgZS7o8h0S0TBlfZ/WbHx+yGPlFhFRKWhm0bEahI1TEwaqUxz5Uhzdq2tL71F0dst7OV4jk5mPPo/kKxBe7N74QDt37t1QEPvpXlKT+sEAg/sqP0xqEXQj1VkRtYPKU8gmjndRES5I59/MmZjHlAtKp/BEHVneJieQ3R+T5ZWSZGSNKhaB4F26P4cwzBr4995J4P9xRu0f6r97t0fU0+r1V4LTPnY1ODu1SPwCNEXLAfJy0Z491ElOsz6zJoH6BmjW3y0zxQ+sqVCsLT6hJSbMOZZhCj9SQi9xp8UdYoRr+8mjq/bvuNc7UFp4+UA95P+eRVPElIx+7xM4zUcHmlCmd4dSi9zK6NKhOP4/gWBECBUVm3VuvXlAglZcNI4iA++lnOWomFTIPeXCKY2wQCt9POAW7KvTHEjSgOH0FEEnI6fkbdqOlmH5GHzioDTpxXjFNZ06eeZ2RA6nkLxt0xkgXG75/ZArfsT4T/ZlchdmBAPdMjfv1zQBiUiBIc6isSifjSdxo5KtJ+XviWy3y6rkAmhGw1ssolLfeQADV882/nOX6HQdsPHyPoVOsAiea3Hx03ZmlHyHkg4zLXKk1En067ATe2bcN+QLcXoSvXXtuObeBk8wSK1lptqRW2MoYX46cYWtJo5rRQIuXHcxREAJIQ0oA1Z2Hk8QEbqBcisrMqvX7ugh1SSLJKjb8AAwtLPX/Ma+eujeaBvAESeVYHcQFAAAB3vQuJlyyZsA2zlFFPmkpsvcjEmDLsfYWxct6QP6xsbRgBeS/YgTx3BMw4Cd5PMS/fJmxsAzMuhjjX6DIF6qGHm8skRYABu4xN89dc51beb04Dvd8CB35oNxuW718ediPbliJbrV12qB1WXis1ul1oghxNiomZt8GYhotzQgm6fKJ84lLVbBKenWkiVyMVi4QEAfq5XnZlhb8brSRH9wpSZkVXTb1wd9LKRbl4QK5vsz7EjQsddG3guni6RcNonSbrPtEh6Fx6BMErF9+L8lY3t9C0FtJDjDpzZSb4x5dOIfkBXXGK+K2JEktZ4QB3A9KGuP9hxwCoAhz2NpqgE+oou+9TZGJKXmQbqExWSmpOfiQQd+0NiDGVYnQR/LaAAQoYvgdYPMzknMOAP1aZbnt8diDi4lZoN5vj742TLaZnbA4pPlQsegF+XMfPCahcLqKK45jg3iG3oI94eF2o5r1iB6jUMiaLqK/1PGKPVgC74PbQ0cbwCEU/69AGIGtLupIXwcXT4OflTbB2HhukshqhXf8rZ2B4UUjr08S0SpoQ3VAGm0aXj54R1f/GioQ0Qk/HIqNOfgk65OrTj7jme0egoHedDVgFIHXBlcmQm+4maJGCHjvwXMFJLbdPU4HfjowxTuE+ANUQXuJ5lJNps4YhwRNaCgGFAKD+eJxbX+w9rJbWEABcibOOLrnJiR9uuP+vXYDrD+kEQ9cY3KUgCX1J0Ci+vdp6o30lEn4VYErVmD+vNBQpuYiMFjoHFnBMo5EtjUsK5xmTCSK/WgwAOp0TM91eQ38lCsuokOjm67PURyJk1ctoFbRCzpALzSfJlnAa8WcJrg2F9DH2z4XC2szoXqX2qGEd5Y8rACOr/PEm7AhZhQQaY8SL0YsF6U79OS2ck/XRGg9afo0uGy2JK0CMOIVt9yL7RFTXVSl45ajyuYSNTiMkJinVhOKNb9+1JEDO8vbTy1hi0oMe7tC1C0tRS/2Q8iHz7Ax37bR6B2XE/NPNKc6uuIAVRtt/ijc/BcKz7X0w9Sa5mNxRv0Ud9qhkLBLJAViYF8amVYWiO95gDRyV7JYsW714ofhwgAaN8LkFPwCkzRlhX8G+15m8wQHV64cXPxFjRRkOSXarpVoSmryOGrDnsgnya2Su9qZJ686z+alKXqbmKkzvRNtP/AlSqDcWAOKajHqmVmwDBdEckjJuuibeF4+NKiEMPka4gA5x8zVQ8oQu0MA4rP6TDWIkq+6xC1lmBICbzsVgBH7w+B1ksXEg6gojXnlq89YRQx44+c3BeReCuWNktC8x58nENkKa2XzJvkZuEH6i2prvgFMFFtO2puQfNL0lAAbgaFPr/SWjoikRwcEYy89cBlslcWoaNb/vLX+GZI6zDrFgLY6P7vRiEoeBId4ykmZ21LA3NNGduGXIuB+yZjkSHZORgYxyuXna19npdoGl54UUNJBZpiLPybvRZ8VkdtM6X7DXvYsaOCQLEIEWgPhRFr3u27FPpX",
               },
             ]}
-          ></Slideshow>
+          ></Slideshow> */}
         </div>
       </div>
     </div>
